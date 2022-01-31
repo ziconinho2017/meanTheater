@@ -1,0 +1,19 @@
+Number of theaters to display each page
+The list of theaters are:
+<select [(ngModel)] = "count" name = "count" id="count">
+    <option value="5">5</option>
+    <option value="10">10</option>
+    <option value="15">15</option>
+</select> Display theater from 
+<select name="location" [(ngModel)]="location">
+    <option value="">ALL</option>
+    <option value="AK">AK</option>
+    <option value="AL">AL</option>
+    <option value="AR">AR</option>
+</select>
+<br />
+<ul>
+    <li *ngFor="let theater of theaters | searchLocation: location">
+        <a routerLink="{{theater._id}}">{{theater.theaterId}} - {{theater.location.address.city}}</a>
+    </li>
+</ul>
